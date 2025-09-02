@@ -30,14 +30,15 @@ namespace Lab1
             bool answer = false;
 
             // code here
-
-            if (a % b == 0 || b % a == 0)
+            a = Math.Abs(a);
+            b = Math.Abs(b);
+            if (b != 0 && a % b == 0)
             {
                 answer = true;
             }
-            else
+            else if (a != 0 && b % a == 0)
             {
-                answer = false;
+                answer = true;
             }
             // end
 
@@ -111,14 +112,12 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            double storona = 2 * Math.Sqrt(circleS / Math.PI);
-            if (storona * storona <= squareS)
+            double storona = Math.Sqrt(squareS);
+            double radius = Math.Sqrt(circleS / Math.PI);
+
+            if (2 * radius > storona * Math.Sqrt(2))
             {
                 answer = true;
-            }
-            else
-            {
-                answer = false;
             }
             // end
 
@@ -175,11 +174,12 @@ namespace Lab1
         {
             bool answer = false;
             const int bank = 10000;
-            var aur = (pupils / 7) * salary;
-            var uchen = pupils * 5;
+
 
             // code here
-            if (year % 4 == 0)
+            int aur = ((pupils + 6) / 7) * salary;
+            int uchen = pupils * 5;
+            if (DateTime.IsLeapYear(year))  
             {
                 answer = false;
             }
